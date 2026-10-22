@@ -14,6 +14,7 @@ public class LinkedChildConfiguration : IEntityTypeConfiguration<LinkedChildEnti
     {
         builder.ToTable("LinkedChildren");
         builder.HasKey(e => new { e.ParentId, e.SortOrder });
+        builder.HasIndex(e => e.ParentId);
         builder.HasIndex(e => new { e.ParentId, e.ChildType });
         builder.HasIndex(e => new { e.ChildId, e.ChildType });
 
