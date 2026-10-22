@@ -106,6 +106,8 @@ namespace Jellyfin.Server.Implementations.Migrations
 
                     b.HasIndex("ParentItemId");
 
+                    b.HasIndex("ParentItemId", "ItemId");
+
                     b.ToTable("AncestorIds");
 
                     b.HasAnnotation("Sqlite:UseSqlReturningClause", false);
@@ -829,6 +831,8 @@ namespace Jellyfin.Server.Implementations.Migrations
                     b.HasKey("ParentId", "SortOrder");
 
                     b.HasIndex("ChildId", "ChildType");
+
+                    b.HasIndex("ParentId");
 
                     b.HasIndex("ParentId", "ChildType");
 
